@@ -1,5 +1,23 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap'); */
+/* @import url('http://fonts.googleapis.com/earlyaccess/khyay.css'); */
+/* @import './fonts/ArbFONTS-Montserrat-Arabic-Black.ttf'; */
+
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url('./fonts/ArbFONTS-Montserrat-Arabic-Light.ttf') format('truetype');
+}
+
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+
+    font-weight: 400;
+    line-height: 1.5;
+    /* color: #212529; */
 }
