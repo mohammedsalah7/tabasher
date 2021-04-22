@@ -1,11 +1,12 @@
 import React from "react";
+
 import Cooker from "../../components/Cooker";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-import Courses from "../courses";
+import Courses from "../../components/courses";
 import * as H from "./style";
 
-function Home() {
+function Home({ setcode, code }) {
   return (
     <>
       <Navbar />
@@ -17,7 +18,7 @@ function Home() {
           </section>
         </div>
       </H.Container>
-      <Courses />
+      <Courses setcode={setcode} code={code} />
       <Cooker />
       <Footer />
     </>
