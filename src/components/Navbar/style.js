@@ -4,10 +4,13 @@ export const Container = styled.div`
   /* border: 1px solid red; */
   height: 100px;
   .navbar {
+    /* border: 1px solid red; */
+    width: 1310px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    margin: auto;
   }
   .login {
     font-size: 1.5rem;

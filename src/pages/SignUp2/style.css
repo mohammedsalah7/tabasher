@@ -1,0 +1,70 @@
+.contanier{
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+.left-sid{
+    position: relative;
+    width: 50%;
+    height: 618px;
+    background: 
+    linear-gradient(
+        rgba(5, 5, 230, 0.993), 
+        rgba(4, 20, 248, 0.582)
+        ),
+        url('../../images/photo1.png');
+        background-size: cover; 
+       
+}
+.right-sid{
+    margin: 0;
+    width: 50%;
+    height: 620px;
+    
+}
+
+.contanier-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title {
+    font-family: "Inter";
+    margin-top: 3em;
+  }
+  h2 {
+    font-size: 30px;
+    width: 415px;
+    height: 36px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: bold;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+  }
+  
+  .text-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    
+  }
+  .infromation {
+    width: 400px;
+    height: 56px;
+    font-family: "Inter";
+    font-size: 18px;
+    line-height: 25px;
+    color: #8692A6;
+    font-style: normal;
+  font-weight: normal;
+  margin-top: 10px;
+  }
+  .link-page{
+    text-decoration: none;
+    color: white;
+  }

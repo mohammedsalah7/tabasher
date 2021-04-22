@@ -1,13 +1,14 @@
 import React from "react";
 import * as N from "./style";
 import imgNav from "../../assets/imgnav.jpg";
+import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <N.Container>
       <div className="navbar">
-        <a href="#2" className="login">
+        <Link to="/user/register" className="login">
           تسجيل دخول
-        </a>
+        </Link>
         <img src={imgNav} alt="img nav" className="img" />
       </div>
     </N.Container>

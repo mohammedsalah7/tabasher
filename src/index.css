@@ -21,3 +21,9 @@ body {
     line-height: 1.5;
     /* color: #212529; */
 }
+::placeholder {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
