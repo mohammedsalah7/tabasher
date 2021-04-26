@@ -1,4 +1,6 @@
 import styled from "styled-components";
+export const All = styled.div``;
+
 export const Container = styled.div`
   margin-top: 20px;
 
@@ -9,13 +11,11 @@ export const Container = styled.div`
     justify-content: space-between;
   }
   .cards {
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     direction: rtl;
     width: 400px;
-    /* background-color: red; */
-    /* z-index: -1; */
+
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #f7f7f7;
@@ -82,6 +82,8 @@ export const Container = styled.div`
 
   .update {
     width: 50%;
+    display: flex;
+    flex-direction: column;
   }
   .titel-up {
     color: #6c757d;
@@ -120,6 +122,12 @@ export const Container = styled.div`
     color: #6c757d;
     font-size: 1rem;
     font-weight: 600;
+  }
+  .info-learn::after {
+    content: ",";
+  }
+  .info-learn:last-child::after {
+    content: "";
   }
   .subjects {
     margin-top: 30px;
@@ -201,7 +209,3 @@ export const Container = styled.div`
     color: #212529;
   }
 `;
-
-// Main color: #5bb68d
-// Secondary color: black
-// Light color: #6c757

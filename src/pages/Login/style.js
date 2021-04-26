@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   direction: rtl;
   width: 730px;
@@ -62,7 +61,6 @@ export const Container = styled.div`
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
-    /* margin-bottom: 15px; */
     margin-bottom: 55px;
   }
   .btn {

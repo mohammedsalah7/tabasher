@@ -1,127 +1,116 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar/Navbar";
-// import Courses from "../../components/courses";
-import Banner from "../../assets/banner.jpg";
-import { Link } from "react-router-dom";
+import Card from "../../components/Card";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import * as C from "./style";
-import Card from "../../components/Card";
 
-function Couress({ code }) {
-  const [state, setState] = useState({
-    data: [],
-  });
+function Couress({ code, login }) {
+  const history = useHistory();
+  const [loading, setLoading] = useState(true);
+  const [state, setState] = useState();
+
   useEffect(() => {
-    console.log("12123");
     axios
       .get(
         `https://api.tabasher.dev/api/services/app/Curriculums/GetCourseCurriculumByCode?code=${code}`
       )
       .then((res) => {
-        console.log(res);
-        const response = res.data;
-        console.log(response);
-        setState({ data: response });
+        const response = res.data.result;
+        setState(response);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [code]);
 
-  console.log(state.data);
+  const auth = () => {
+    login ? history.push("/user/recorded") : history.push("/user/register");
+  };
+  console.log("0000000", login);
   return (
-    <>
-      <Navbar />
+    <C.All>
+      <Navbar login={login} />
       <C.Container>
         <div className="show">
-          <section>
-            {console.log(code)}
-            <Card
-              // className="cards"
-              stylecard="cards"
-              // id="cook"
-              title="أساسيات الطبخ"
-              content="الطبخ هو عبارةٌ عن عمليةٍ يتمّ من خلالها دمج الأطعمة، وإضافة البهارات، والتوابل والمنكهات المختلفة إليها بأساليبَ، وطرقٍ مختلفةٍ بهدف جعلها جاهزة للأكل"
-              price="0.0 ريال"
-              imgurl={Banner}
-              btn={
-                <article className="join">
-                  <Link
-                    to="/Couress/cook"
-                    onClick={() => {
-                      // setcode("cook");
-                    }}
-                  >
-                    اشترك الآن
-                  </Link>
-                </article>
-              }
-            />
-            {/* <Courses /> */}
-          </section>
-          <section className="details">
-            <h1 className="title-courses">أساسيات الطبخ</h1>
-            <article className="info-courses">
-              <p className="time">
-                <span className="title-timer">مدة الدورة</span>
-                <span className="houres">100 ساعة</span>
-              </p>
-              <p className="update">
-                <h3 className="titel-up">اخر تحديث</h3>
-                <h3 className="data-up">تاريخ</h3>
-              </p>
-            </article>
-            <article className="details-courses">
-              <h4 className="description">وصف الدورة</h4>
-              <p className="description-text">
-                الطبخ هو عبارةٌ عن عمليةٍ يتمّ من خلالها دمج الأطعمة، وإضافة
-                البهارات، والتوابل والمنكهات المختلفة إليها بأساليبَ، وطرقٍ
-                مختلفةٍ بهدف جعلها جاهزة للأكل، وقد اختلف مفهوم الطبخ في العصر
-                الحديث عن العصور القديمة فلم يعد الطبخ مهماً من أجل سدّ الجوع
-                فقط، بل أصبح يهتم بالتفنّن في تحضير، وتقديم الأطباق المختلفة،
-                والتنافس على إظهارها بأجمل الأشكال، وأغنى المكوّنات. إقرأ المزيد
-                على موضوع.كوم:
-                https://mawdoo3.com/%D9%85%D9%81%D9%87%D9%88%D9%85_%D8%A7%D9%84%D8%B7%D8%A8%D8%AE
-              </p>
-            </article>
-            <articlee>
-              <h4 className="new-learn">ماذا سوف تتعلم؟</h4>
-              <span className="info-learn">الطبخ ، أساسيات ، مياه</span>
-            </articlee>
-            <div className="subjects">
-              <h1 className="title-subject">مواضيع الدورة</h1>
-              <div className="table-1">
-                <div className="department">
-                  {" "}
-                  <h5 className="span-1">منال العالم</h5>
-                  <small className="Dep-span-1">قسم 1</small>
+          {!loading && (
+            <>
+              <section>
+                <Card
+                  stylecard="cards"
+                  title={state.name}
+                  content={state.description}
+                  price={state.price}
+                  imgurl={state.imageUrl}
+                  btn={
+                    <article className="join">
+                      <span
+                        onClick={() => {
+                          auth();
+                        }}
+                      >
+                        شراء الان مجانا
+                      </span>
+                    </article>
+                  }
+                />
+              </section>
+              <div className="details">
+                <h1 className="title-courses">{state.name}</h1>
+                <div className="info-courses">
+                  <p className="time">
+                    <span className="title-timer">مدة الدورة</span>
+                    <span className="houres">{state.totalHours} ساعة </span>
+                  </p>
+                  <p className="update">
+                    <span className="titel-up "> اخر تحديث</span>
+                    <span className="data-up">
+                      {state.lastModificationTime}
+                    </span>
+                  </p>
+                </div>
+                <div className="details-courses">
+                  <h4 className="description">وصف الدورة</h4>
+                  <p className="description-text">{state.description}</p>
                 </div>
                 <div>
-                  <h3 className="dec-1">الأساسيات</h3>
+                  <h4 className="new-learn">ماذا سوف تتعلم؟</h4>
+                  {JSON.parse(state.lessonsLearned).map((Data, id) => (
+                    <span key={id} className="info-learn">
+                      {Data.value}
+                    </span>
+                  ))}
                 </div>
-                <div>
-                  {" "}
-                  <h3 className="dec-2">بطاطس بحشوة الجبن</h3>
+                <div className="subjects">
+                  <h1 className="title-subject">مواضيع الدورة</h1>
+                  {state.sections?.map((data, id) => (
+                    <div key={id} className="table-1">
+                      <div className="department">
+                        {" "}
+                        <h5 className="span-1">{data.name}</h5>
+                        <small className="Dep-span-1">قسم {data.order}</small>
+                      </div>
+
+                      {data.lectures.map((subdata, id) => (
+                        <div key={id}>
+                          {" "}
+                          <h3 className="dec-2">{subdata.name}</h3>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
                 </div>
-              </div>{" "}
-              <div className="table-2">
-                <div className="department-2">
-                  {" "}
-                  <h5 className="span-2"> رمزي المعصب</h5>
-                  <small className="Dep-span-2">قسم 2</small>
-                </div>
-                <div>
-                  <h3 className="Dec-2">المشروم</h3>
-                </div>
-              </div>{" "}
-            </div>
-          </section>
+              </div>
+            </>
+          )}
         </div>
       </C.Container>
+
       <Footer />
-    </>
+    </C.All>
   );
 }
 

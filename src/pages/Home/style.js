@@ -1,12 +1,10 @@
 import styled from "styled-components";
 import Banner from "../../assets/banner.jpg";
 export const Container = styled.div`
-  /* border: 1px solid red; */
-  margin-top: 20px;
+  margin-bottom: 30px;
   .banner {
     height: 500px;
     background-image: url(${Banner});
-    /* linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,8 +27,13 @@ export const Container = styled.div`
   h3 {
     font-size: 2.5rem;
   }
+  .titels {
+    width: 400px;
+    height: 200px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;
-
-// Main color: #5bb68d
-// Secondary color: black
-// Light color: #6c757

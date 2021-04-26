@@ -3,7 +3,6 @@ import * as F from "./style";
 import Mada from "../../assets/cc.png";
 import Visa from "../../assets/mada.png";
 import Logo from "../../assets/logo.png";
-// import imgNav from "../../assets/imgnav.jpg";
 function Footer() {
   return (
     <F.Container>
