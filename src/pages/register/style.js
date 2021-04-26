@@ -65,6 +65,26 @@ export const Container = styled.div`
     border-radius: 0.25rem;
     margin-bottom: 15px;
   }
+  .userName {
+    display: flex;
+    width: 160px;
+    height: 24px;
+    color: #343a40;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+  .userName-input {
+    width: 100%;
+    padding: 10px;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-bottom: 15px;
+  }
   .phone {
     width: 110px;
     height: 24px;

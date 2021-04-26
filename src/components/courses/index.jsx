@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import * as C from "./style";
-// import Banner from "../../assets/banner.jpg";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Card from "../Card";
